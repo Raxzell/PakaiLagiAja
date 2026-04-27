@@ -27,77 +27,59 @@
 
 <div class="page-header">
   <h1>Katalog Barang</h1>
-  <p>1.243 barang tersedia dari komunitas kampus</p>
+  <p>1.243 barang tersedia dari komunitas</p>
 </div>
 
 <div class="catalog-layout">
   <aside class="sidebar">
     <div class="sidebar-title">Kategori</div>
-    <button class="cat-btn active" onclick="filterCat(this, 'semua')">
-      <span>🏠</span> Semua <span class="cat-count">1.2k</span>
-    </button>
-    <button class="cat-btn" onclick="filterCat(this, 'elektronik')">
-      <span>⚡</span> Elektronik <span class="cat-count">342</span>
-    </button>
-    <button class="cat-btn" onclick="filterCat(this, 'buku')">
-      <span>📚</span> Buku <span class="cat-count">289</span>
-    </button>
-    <button class="cat-btn" onclick="filterCat(this, 'dapur')">
-      <span>🍳</span> Dapur <span class="cat-count">198</span>
-    </button>
-    <button class="cat-btn" onclick="filterCat(this, 'pakaian')">
-      <span>👕</span> Pakaian <span class="cat-count">215</span>
-    </button>
-    <button class="cat-btn" onclick="filterCat(this, 'perabot')">
-      <span>🪑</span> Perabot <span class="cat-count">134</span>
-    </button>
-    <button class="cat-btn" onclick="filterCat(this, 'lainnya')">
-      <span>📦</span> Lainnya <span class="cat-count">85</span>
-    </button>
+    <button class="cat-btn active" onclick="filterCat(this, 'semua')"><span>🏠</span> Semua <span class="cat-count">12</span></button>
+    <button class="cat-btn" onclick="filterCat(this, 'elektronik')"><span>⚡</span> Elektronik <span class="cat-count">4</span></button>
+    <button class="cat-btn" onclick="filterCat(this, 'buku')"><span>📚</span> Buku <span class="cat-count">2</span></button>
+    <button class="cat-btn" onclick="filterCat(this, 'dapur')"><span>🍳</span> Dapur <span class="cat-count">2</span></button>
+    <button class="cat-btn" onclick="filterCat(this, 'pakaian')"><span>👕</span> Pakaian <span class="cat-count">2</span></button>
+    <button class="cat-btn" onclick="filterCat(this, 'perabot')"><span>🪑</span> Perabot <span class="cat-count">2</span></button>
 
     <div class="sidebar-title">Status</div>
     <div class="filter-group">
-      <label class="filter-label"><input type="checkbox" checked> Tersedia</label>
+        <label class="filter-label"><input type="checkbox" class="filter-status" value="Tersedia" checked> Tersedia</label>
     </div>
     <div class="filter-group">
-      <label class="filter-label"><input type="checkbox"> Dipinjam</label>
-    </div>
-    <div class="filter-group">
-      <label class="filter-label"><input type="checkbox"> Penukaran</label>
+        <label class="filter-label"><input type="checkbox" class="filter-status" value="Dipinjam" checked> Dipinjam</label>
     </div>
 
     <div class="sidebar-title">Jenis</div>
     <div class="filter-group">
-      <label class="filter-label"><input type="checkbox" checked> Pinjam</label>
+        <label class="filter-label"><input type="checkbox" class="filter-type" value="Pinjam" checked> Pinjam</label>
     </div>
     <div class="filter-group">
-      <label class="filter-label"><input type="checkbox" checked> Tukar</label>
+        <label class="filter-label"><input type="checkbox" class="filter-type" value="Tukar" checked> Tukar</label>
     </div>
     <div class="filter-group">
-      <label class="filter-label"><input type="checkbox" checked> Gratis</label>
+        <label class="filter-label"><input type="checkbox" class="filter-type" value="Gratis" checked> Gratis</label>
     </div>
 
     <div style="margin-top: 1.25rem;">
-      <button class="btn btn-primary" style="width:100%;" onclick="openModal('add-item-modal')">+ Tambah Barang</button>
+        <button class="btn btn-primary" style="width:100%;" onclick="openModal('add-item-modal')">+ Tambah Barang</button>
     </div>
-  </aside>
+    </aside>
 
-  <div class="catalog-main">
+    <div class="catalog-main">
     <div class="catalog-header">
-      <div class="search-bar">
+        <div class="search-bar">
         <span class="search-icon">🔍</span>
-        <input type="text" placeholder="Cari barang...">
-      </div>
-      <select class="sort-select">
-        <option>Terbaru</option>
-        <option>A–Z</option>
-        <option>Kondisi Terbaik</option>
-      </select>
+        <input type="text" id="search-input" placeholder="Cari nama barang...">
+        </div>
+        <select class="sort-select" id="sort-select">
+        <option value="terbaru">Terbaru</option>
+        <option value="az">A–Z</option>
+        <option value="za">Z–A</option>
+        </select>
     </div>
 
     <div class="catalog-grid" id="catalog-grid">
-      </div>
-  </div>
+        </div>
+    </div>
 </div>
 
 <footer>
@@ -132,12 +114,62 @@
     <button class="modal-close" onclick="closeModal('add-item-modal')">✕</button>
     <div class="modal-title">Tambah Barang</div>
     <div class="modal-sub">Bagikan barang yang sudah tidak terpakai</div>
-    <div class="form-group"><label class="form-label">Nama Barang</label><input class="form-input" type="text" placeholder="Contoh: Kipas Angin Miyako 12 inch"></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-      <div class="form-group"><label class="form-label">Kategori</label><select class="form-input"><option>Elektronik</option><option>Buku</option></select></div>
-      <div class="form-group"><label class="form-label">Jenis</label><select class="form-input"><option>Pinjam</option><option>Tukar</option></select></div>
+    
+    <div class="form-group">
+      <label class="form-label">Nama Barang</label>
+      <input class="form-input" type="text" placeholder="Contoh: Kipas Angin Miyako 12 inch">
     </div>
-    <div class="form-group"><label class="form-label">Deskripsi</label><textarea class="form-input" rows="3" placeholder="Ceritakan kondisi..."></textarea></div>
+    
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div class="form-group">
+        <label class="form-label">Kategori</label>
+        <select class="form-input" style="cursor:pointer;">
+          <option>Elektronik</option>
+          <option>Buku</option>
+          <option>Dapur</option>
+          <option>Pakaian</option>
+          <option>Perabot</option>
+          <option>Lainnya</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Jenis</label>
+        <select class="form-input" style="cursor:pointer;">
+          <option>Pinjam</option>
+          <option>Tukar</option>
+          <option>Gratis</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Kondisi</label>
+      <select class="form-input" style="cursor:pointer;">
+        <option>Sangat Baik</option>
+        <option>Baik</option>
+        <option>Cukup Baik</option>
+        <option>Perlu Perbaikan</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Deskripsi</label>
+      <textarea class="form-input" rows="3" placeholder="Ceritakan kondisi barang lebih detail..." style="resize:vertical;"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Foto Barang</label>
+  
+        <input type="file" id="add-item-file-input" accept="image/*" style="display: none;">
+  
+        <div id="add-item-upload-area">
+            <div id="add-item-placeholder">
+                📷 Klik untuk upload foto
+            </div>
+            <img id="add-item-preview" src="" alt="Preview Foto">
+        </div>
+    </div>
+
     <button class="btn btn-primary" style="width:100%;" onclick="closeModal('add-item-modal')">Tambah ke Katalog</button>
   </div>
 </div>
