@@ -28,8 +28,13 @@
 <section class="hero">
   <div class="hero-content fade-in">
     <div class="hero-badge">🌿 SDG 12 — Konsumsi Bertanggung Jawab</div>
-    <h1>Barang <em>lama</em><br>nilai <em>baru</em></h1>
-    <p>Platform peminjaman, penukaran, dan distribusi barang layak pakai. Bantu sesama, kurangi limbah, perpanjang siklus hidup barang.</p>
+    
+    <h1>Pakai Lagi Aja.</h1>
+    <p>
+      <strong style="color: var(--green-dark); font-size: 1.15rem; display: block; margin-bottom: 8px;">Reuse Today, Save Tomorrow.</strong>
+      Platform peminjaman, penukaran, dan distribusi barang layak pakai. Bantu sesama, kurangi limbah, perpanjang siklus hidup barang.
+    </p>
+
     <div class="hero-actions">
       <button class="btn btn-primary" onclick="window.location.href='katalog.html'">Jelajahi Barang →</button>
       <button class="btn btn-outline" onclick="openModal('register-modal')">Mulai Donasi</button>
@@ -184,59 +189,6 @@
       <input class="form-input" type="password" placeholder="Min. 8 karakter">
     </div>
     <button class="btn btn-primary" style="width:100%;margin-top:8px;" onclick="window.location.href='dashboard.html'">Daftar</button>
-  </div>
-</div>
-
-<div class="modal-overlay" id="add-item-modal">
-  <div class="modal" style="max-width:500px;">
-    <button class="modal-close" onclick="closeModal('add-item-modal')">✕</button>
-    <div class="modal-title">Tambah Barang</div>
-    <div class="modal-sub">Bagikan barang yang sudah tidak terpakai</div>
-    <div class="form-group">
-      <label class="form-label">Nama Barang</label>
-      <input class="form-input" type="text" placeholder="Contoh: Kipas Angin Miyako 12 inch">
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-      <div class="form-group">
-        <label class="form-label">Kategori</label>
-        <select class="form-input" style="cursor:pointer;">
-          <option>Elektronik</option>
-          <option>Buku</option>
-          <option>Dapur</option>
-          <option>Pakaian</option>
-          <option>Perabot</option>
-          <option>Lainnya</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Jenis</label>
-        <select class="form-input" style="cursor:pointer;">
-          <option>Pinjam</option>
-          <option>Tukar</option>
-          <option>Gratis (Distribusi)</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="form-label">Kondisi</label>
-      <select class="form-input" style="cursor:pointer;">
-        <option>Sangat Baik</option>
-        <option>Baik</option>
-        <option>Cukup Baik</option>
-        <option>Perlu Perbaikan</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label class="form-label">Deskripsi</label>
-      <textarea class="form-input" rows="3" placeholder="Ceritakan kondisi barang lebih detail..." style="resize:vertical;"></textarea>
-    </div>
-    <div class="form-group">
-      <label class="form-label">Foto Barang</label>
-      <div style="border:2px dashed var(--border);border-radius:var(--radius-sm);padding:1.5rem;text-align:center;cursor:pointer;color:var(--text-light);font-size:14px;">
-        📷 Klik untuk upload foto
-      </div>
-    </div>
-    <button class="btn btn-primary" style="width:100%;" onclick="closeModal('add-item-modal')">Tambah ke Katalog</button>
   </div>
 </div>
 
